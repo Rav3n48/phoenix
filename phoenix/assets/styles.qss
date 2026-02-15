@@ -60,7 +60,6 @@ QMessageBox QLabel {
 
 QCheckBox {
     margin: 25px;
-
 }
 
 QCheckBox::indicator {
@@ -78,6 +77,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background-color: {accent_color};
     border: 2px solid {accent_color};
+    image: url(./assets/check-mark.png);
 }
 
 QCheckBox::indicator:checked:hover {

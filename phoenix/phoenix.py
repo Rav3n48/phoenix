@@ -26,9 +26,13 @@ class TabbedPanelWidget(QWidget):
     def init_ui(self):
         self.menu_bar = QMenuBar()
 
+        self.action_statistics = QAction(get_string('statistics'), self)
+
         self.action_settings = QAction(get_string('settings'), self)
         self.action_settings.triggered.connect(self.open_settings)
 
+        self.menu_bar.addAction(self.action_statistics)
+        self.menu_bar.addSeparator()
         self.menu_bar.addAction(self.action_settings)
 
         tabs = QTabWidget()
@@ -76,13 +80,14 @@ class MainWidget(QWidget):
         self.input_price_per_hour.setAlignment(Qt.AlignCenter)
         self.input_price_per_hour.setStyleSheet(
             "margin: 10px 160px; padding: 10px; font-size: 16pt")
-        
+
         self.btn_hide_price_input = QPushButton(get_string("hide"))
         self.btn_hide_price_input.clicked.connect(self.hide_price)
         self.btn_hide_price_input.setFlat(True)
         shortcut_hide = QShortcut(QKeySequence(Qt.Key_H), self)
         shortcut_hide.activated.connect(self.btn_hide_price_input.click)
-        self.btn_hide_price_input.setStyleSheet("margin: 30px 5px; padding: 5px; border: none; background: transparent; font-size: 10pt")
+        self.btn_hide_price_input.setStyleSheet(
+            "margin: 30px 5px; padding: 5px; border: none; background: transparent; font-size: 10pt")
 
         self.btn_start_stop = QPushButton(get_string('start'))
         shortcut_start_stop = QShortcut(QKeySequence(Qt.Key_Space), self)
@@ -196,6 +201,7 @@ def run():
     theme_manager.load_theme(app, config_manager.get("THEME"))
     window.show()
     app.exec_()
+
 
 if __name__ == "__main__":
     run()

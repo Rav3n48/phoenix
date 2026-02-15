@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
     QCheckBox
 )
 
-from helper import config_manager, get_string, settings_strings, show_message, theme_manager, language_manager
+from helper import config_manager, get_string, settings_strings, show_message, theme_manager
 from buffet import BuffetDefaultItemsList
 
 
@@ -13,7 +13,6 @@ class SettingsDialog(QDialog):
     def __init__(self, app, parent=None):
         super().__init__(parent)
         self.setWindowTitle(get_string("settings"))
-
 
         self.app = app
 
@@ -31,8 +30,8 @@ class SettingsDialog(QDialog):
         self.lbl_theme = QLabel(f"{get_string('theme')}:")
 
         self.combo_theme = QComboBox()
-        items = [get_string('light'), 
-                 get_string('dark'), 
+        items = [get_string('light'),
+                 get_string('dark'),
                  get_string('barcelona'),
                  get_string("tractor"),
                  get_string("cyberpunk"),
@@ -40,7 +39,6 @@ class SettingsDialog(QDialog):
         self.combo_theme.addItems(items)
         self.combo_theme.setCurrentText(get_string(settings_strings['theme'][
             config_manager.get('THEME').capitalize()].lower()))
-
 
         self.lbl_table_count = QLabel(f"{get_string('table_count')}:")
 
@@ -55,7 +53,6 @@ class SettingsDialog(QDialog):
 
         self.btn_buffet_default = QPushButton(get_string('buffet_default'))
         self.btn_buffet_default.clicked.connect(self.open_default_buffet)
-
 
         self.btn_apply = QPushButton(get_string('apply'))
         self.btn_apply.clicked.connect(self.apply_settings)

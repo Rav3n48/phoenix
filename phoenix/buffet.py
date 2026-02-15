@@ -85,7 +85,6 @@ class BuffetDialog(QDialog):
 
             row3.addWidget(self.lbl_quantity, alignment=Qt.AlignLeft)
             row3.addWidget(self.spin_quantity, alignment=Qt.AlignRight)
-        
 
         row4.addWidget(self.combo_default)
 

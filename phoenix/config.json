@@ -1,7 +1,7 @@
 {
     "TABLE_COUNT": 3,
     "LANGUAGE": "farsi",
-    "THEME": "dark",
-    "HIDE_BTN": false,
+    "THEME": "cyberpunk",
+    "HIDE_BTN": true,
     "BUFFET_DEFAULT_ITEMS": []
 }
