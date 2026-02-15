@@ -15,6 +15,7 @@ from helper import (
 class BuffetDialog(QDialog):
     def __init__(self, main_window, buffet_items):
         super().__init__(main_window)
+        self.setWindowTitle(get_string("buffet"))
 
         self.buffet_items = buffet_items
 
@@ -132,6 +133,7 @@ class BuffetDialog(QDialog):
 class BuffetDefaultDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setWindowTitle(get_string("default_item"))
 
         self.init_ui()
 
@@ -206,6 +208,7 @@ class BuffetDefaultDialog(QDialog):
 class BuffetDefaultItemsList(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setWindowTitle(get_string("default_item"))
 
         self.init_ui()
 

@@ -190,8 +190,8 @@ class MainWidget(QWidget):
 def run():
     app = QApplication([])
     app.setWindowIcon(QIcon(os.path.join("assets", "phoenix.ico")))
-    app.setApplicationName("Phoenix")
-    app.setApplicationDisplayName("Phoenix")
+    app.setApplicationName(get_string("phoenix"))
+    app.setApplicationDisplayName(get_string("phoenix"))
     window = TabbedPanelWidget(app)
     theme_manager.load_theme(app, config_manager.get("THEME"))
     window.show()

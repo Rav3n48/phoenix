@@ -12,6 +12,8 @@ from buffet import BuffetDefaultItemsList
 class SettingsDialog(QDialog):
     def __init__(self, app, parent=None):
         super().__init__(parent)
+        self.setWindowTitle(get_string("settings"))
+
 
         self.app = app
 
