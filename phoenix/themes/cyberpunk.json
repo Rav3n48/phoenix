@@ -1,0 +1,16 @@
+{
+    "name": "Cyberpunk 2077",
+    "colors": {
+        "window_background": "#0a0a12",
+        "widget_background": "#1a1a2e",
+        "text_color": "#00ffff",
+        "accent_color": "#ff00ff",
+        "border_color": "#ffaa00",
+        "hover_color": "#2a2a4a",
+        "disabled_text": "#4a4a6a",
+        "tab_selected": "#2a2a4a",
+        "tab_unselected": "#0a0a12",
+        "button_text": "#00ffff",
+        "input_background": "#1f1f3a"
+    }
+}
