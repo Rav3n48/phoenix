@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
     QCheckBox
 )
 
-from helper import config_manager, get_string, settings_strings, show_message, theme_manager
+from helper import config_manager, get_string, settings_strings, theme_manager, show_message
 from buffet import BuffetDefaultItemsList
 
 

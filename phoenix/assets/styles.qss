@@ -5,6 +5,11 @@ QWidget {
     font-size: 19pt;
 }
 
+QMenuBar::item {
+    spacing: 25px;
+    padding: 10px 20px;
+}
+
 QPushButton {
     background-color: {accent_color};
     color: {button_text};

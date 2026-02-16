@@ -1,11 +1,12 @@
 import json
 import os
 
+
 class LanguageManager:
     def __init__(self, lang_code="english"):
         self.lang_code = lang_code
         self.strings = {}
-        self.load_language(lang_code) 
+        self.load_language(lang_code)
 
     def load_language(self, lang_code):
         path = os.path.join("languages", f"{lang_code}.json")

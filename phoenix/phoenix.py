@@ -26,13 +26,9 @@ class TabbedPanelWidget(QWidget):
     def init_ui(self):
         self.menu_bar = QMenuBar()
 
-        self.action_statistics = QAction(get_string('statistics'), self)
-
         self.action_settings = QAction(get_string('settings'), self)
         self.action_settings.triggered.connect(self.open_settings)
 
-        self.menu_bar.addAction(self.action_statistics)
-        self.menu_bar.addSeparator()
         self.menu_bar.addAction(self.action_settings)
 
         tabs = QTabWidget()
@@ -44,7 +40,7 @@ class TabbedPanelWidget(QWidget):
         for i in range(config_manager.get("TABLE_COUNT")):
             self.table_name = f"{get_string('table')} {i+1}"
             tab = QWidget()
-            content = MainWidget()
+            content = MainWidget(self)
             content_layout = QVBoxLayout(tab)
             content_layout.addWidget(content)
             tabs.addTab(tab, self.table_name)
@@ -55,8 +51,8 @@ class TabbedPanelWidget(QWidget):
 
 
 class MainWidget(QWidget):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
 
         self.buffet_items = list()
 
