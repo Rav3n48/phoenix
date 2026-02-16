@@ -15,6 +15,7 @@ from helper import (
 class BuffetDialog(QDialog):
     def __init__(self, main_window, buffet_items):
         super().__init__(main_window)
+        self.setWindowTitle(get_string("buffet"))
 
         self.buffet_items = buffet_items
 
@@ -65,14 +66,25 @@ class BuffetDialog(QDialog):
         self.btn_cancel = QPushButton(get_string('cancel'))
         self.btn_cancel.clicked.connect(lambda: self.close())
 
-        row1.addWidget(self.input_name, alignment=Qt.AlignLeft)
-        row1.addWidget(self.lbl_name, alignment=Qt.AlignRight)
+        if config_manager.get("LANGUAGE") == "farsi":
+            row1.addWidget(self.input_name, alignment=Qt.AlignLeft)
+            row1.addWidget(self.lbl_name, alignment=Qt.AlignRight)
 
-        row2.addWidget(self.input_price, alignment=Qt.AlignLeft)
-        row2.addWidget(self.lbl_price, alignment=Qt.AlignRight)
+            row2.addWidget(self.input_price, alignment=Qt.AlignLeft)
+            row2.addWidget(self.lbl_price, alignment=Qt.AlignRight)
 
-        row3.addWidget(self.spin_quantity, alignment=Qt.AlignLeft)
-        row3.addWidget(self.lbl_quantity, alignment=Qt.AlignRight)
+            row3.addWidget(self.spin_quantity, alignment=Qt.AlignLeft)
+            row3.addWidget(self.lbl_quantity, alignment=Qt.AlignRight)
+
+        else:
+            row1.addWidget(self.lbl_name, alignment=Qt.AlignLeft)
+            row1.addWidget(self.input_name, alignment=Qt.AlignRight)
+
+            row2.addWidget(self.lbl_price, alignment=Qt.AlignLeft)
+            row2.addWidget(self.input_price, alignment=Qt.AlignRight)
+
+            row3.addWidget(self.lbl_quantity, alignment=Qt.AlignLeft)
+            row3.addWidget(self.spin_quantity, alignment=Qt.AlignRight)
 
         row4.addWidget(self.combo_default)
 
@@ -120,6 +132,7 @@ class BuffetDialog(QDialog):
 class BuffetDefaultDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setWindowTitle(get_string("default_item"))
 
         self.init_ui()
 
@@ -150,11 +163,19 @@ class BuffetDefaultDialog(QDialog):
         self.btn_cancel = QPushButton(get_string('cancel'))
         self.btn_cancel.clicked.connect(lambda: self.close())
 
-        row1.addWidget(self.input_name, alignment=Qt.AlignLeft)
-        row1.addWidget(self.lbl_name, alignment=Qt.AlignRight)
+        if config_manager.get("LANGUAGE") == "farsi":
+            row1.addWidget(self.input_name, alignment=Qt.AlignLeft)
+            row1.addWidget(self.lbl_name, alignment=Qt.AlignRight)
 
-        row2.addWidget(self.input_price, alignment=Qt.AlignLeft)
-        row2.addWidget(self.lbl_price, alignment=Qt.AlignRight)
+            row2.addWidget(self.input_price, alignment=Qt.AlignLeft)
+            row2.addWidget(self.lbl_price, alignment=Qt.AlignRight)
+
+        else:
+            row1.addWidget(self.lbl_name, alignment=Qt.AlignLeft)
+            row1.addWidget(self.input_name, alignment=Qt.AlignRight)
+
+            row2.addWidget(self.lbl_price, alignment=Qt.AlignLeft)
+            row2.addWidget(self.input_price, alignment=Qt.AlignRight)
 
         row3.addWidget(self.btn_cancel)
         row3.addWidget(self.btn_add_item)
@@ -186,6 +207,7 @@ class BuffetDefaultDialog(QDialog):
 class BuffetDefaultItemsList(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setWindowTitle(get_string("default_item"))
 
         self.init_ui()
 

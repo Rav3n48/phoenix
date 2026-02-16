@@ -9,9 +9,10 @@ class ConfigManager:
 
     def load_config(self):
         default_config = {
-            "TABLE_COUNT": 1,
+            "TABLE_COUNT": 3,
             "LANGUAGE": "english",
             "THEME": "dark",
+            "HIDE_BTN": False,
             "BUFFET_DEFAULT_ITEMS": []
         }
 

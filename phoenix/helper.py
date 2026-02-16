@@ -21,7 +21,13 @@ settings_strings = {
         "Dark": "dark",
         "تاریک": "dark",
         "Barcelona": "barcelona",
-        "بارسلونا": "barcelona"
+        "بارسلونا": "barcelona",
+        "Tractor": "tractor",
+        "تراکتور": "tractor",
+        "Cyberpunk": "cyberpunk",
+        "سایبرپانک": "cyberpunk",
+        "Minecraft": "minecraft",
+        "ماینکرافت": "minecraft"
     }
 }
 

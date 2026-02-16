@@ -16,8 +16,10 @@ from buffet import BuffetDialog
 
 
 class TabbedPanelWidget(QWidget):
-    def __init__(self):
+    def __init__(self, app):
         super().__init__()
+
+        self.app = app
 
         self.init_ui()
 
@@ -38,19 +40,19 @@ class TabbedPanelWidget(QWidget):
         for i in range(config_manager.get("TABLE_COUNT")):
             self.table_name = f"{get_string('table')} {i+1}"
             tab = QWidget()
-            content = MainWidget()
+            content = MainWidget(self)
             content_layout = QVBoxLayout(tab)
             content_layout.addWidget(content)
             tabs.addTab(tab, self.table_name)
 
     def open_settings(self):
-        window = SettingsDialog(self)
+        window = SettingsDialog(self.app, self)
         window.exec_()
 
 
 class MainWidget(QWidget):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
 
         self.buffet_items = list()
 
@@ -75,6 +77,14 @@ class MainWidget(QWidget):
         self.input_price_per_hour.setStyleSheet(
             "margin: 10px 160px; padding: 10px; font-size: 16pt")
 
+        self.btn_hide_price_input = QPushButton(get_string("hide"))
+        self.btn_hide_price_input.clicked.connect(self.hide_price)
+        self.btn_hide_price_input.setFlat(True)
+        shortcut_hide = QShortcut(QKeySequence(Qt.Key_H), self)
+        shortcut_hide.activated.connect(self.btn_hide_price_input.click)
+        self.btn_hide_price_input.setStyleSheet(
+            "margin: 30px 5px; padding: 5px; border: none; background: transparent; font-size: 10pt")
+
         self.btn_start_stop = QPushButton(get_string('start'))
         shortcut_start_stop = QShortcut(QKeySequence(Qt.Key_Space), self)
         shortcut_start_stop.activated.connect(self.btn_start_stop.click)
@@ -95,14 +105,16 @@ class MainWidget(QWidget):
         shortcut_buffet.activated.connect(self.btn_buffet.click)
         self.btn_buffet.clicked.connect(self.buffet)
 
+        row1 = QHBoxLayout()
+        row1.addWidget(self.input_price_per_hour)
+        if config_manager.get("HIDE_BTN"):
+            row1.addWidget(self.btn_hide_price_input, alignment=Qt.AlignRight)
+
         row2 = QHBoxLayout()
         row2.addWidget(self.btn_reset)
         row2.addWidget(self.btn_buffet)
         row2.addWidget(self.btn_price)
         row2.addWidget(self.btn_start_stop)
-
-        row1 = QHBoxLayout()
-        row1.addWidget(self.input_price_per_hour)
 
         main_layout = QVBoxLayout(self)
         main_layout.addWidget(self.lbl_timer, alignment=Qt.AlignCenter)
@@ -141,6 +153,14 @@ class MainWidget(QWidget):
         txt = self.time.toString("hh:mm:ss")
         self.lbl_timer.setText(txt)
 
+    def hide_price(self):
+        if self.input_price_per_hour.isVisible():
+            self.btn_hide_price_input.setText(get_string("show"))
+            self.input_price_per_hour.setVisible(False)
+        else:
+            self.btn_hide_price_input.setText(get_string("hide"))
+            self.input_price_per_hour.setVisible(True)
+
     def price_display(self):
         price_text = self.input_price_per_hour.text()
         if price_text == "" or self.time.toString() == "00:00:00":
@@ -168,12 +188,16 @@ class MainWidget(QWidget):
         window.exec_()
 
 
-if __name__ == "__main__":
+def run():
     app = QApplication([])
     app.setWindowIcon(QIcon(os.path.join("assets", "phoenix.ico")))
-    app.setApplicationName("Phoenix")
-    app.setApplicationDisplayName("Phoenix")
-    window = TabbedPanelWidget()
+    app.setApplicationName(get_string("phoenix"))
+    app.setApplicationDisplayName(get_string("phoenix"))
+    window = TabbedPanelWidget(app)
     theme_manager.load_theme(app, config_manager.get("THEME"))
     window.show()
     app.exec_()
+
+
+if __name__ == "__main__":
+    run()

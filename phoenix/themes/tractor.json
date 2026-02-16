@@ -1,0 +1,16 @@
+{
+    "name": "Tractor Sazi",
+    "colors": {
+        "window_background": "#e30613",
+        "widget_background": "#c41e3a",
+        "text_color": "#ffffff",
+        "accent_color": "#000000",
+        "border_color": "#fedb00",
+        "hover_color": "#a5152e",
+        "disabled_text": "#ff9aa4",
+        "tab_selected": "#a5152e",
+        "tab_unselected": "#e30613",
+        "button_text": "#ffffff",
+        "input_background": "#b31b34"
+    }
+}

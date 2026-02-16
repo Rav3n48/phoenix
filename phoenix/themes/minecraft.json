@@ -1,0 +1,16 @@
+{
+    "name": "Minecraft",
+    "colors": {
+        "window_background": "#3b3b3b",
+        "widget_background": "#4c4c4c",
+        "text_color": "#ffffff",
+        "accent_color": "#6b8e23",
+        "border_color": "#8b6b4d",
+        "hover_color": "#5d5d5d",
+        "disabled_text": "#808080",
+        "tab_selected": "#5d5d5d",
+        "tab_unselected": "#3b3b3b",
+        "button_text": "#ffffff",
+        "input_background": "#2d2d2d"
+    }
+}

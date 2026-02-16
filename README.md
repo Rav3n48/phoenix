@@ -1,3 +1,4 @@
+![Phoenix Screenshot](images/screenshots/Screenshot1.png)
 # Phoenix
 
 A graphical desktop application for managing tables in Gamenet environments.
@@ -13,3 +14,9 @@ It supports themes, multiple languages, and flexible configuration handling to a
 - Centralized configuration management
 - Theme customization
 - Multi-language support
+
+## Screenshots
+
+![Phoenix Screenshot](images/screenshots/Screenshot2.png)
+![Phoenix Screenshot](images/screenshots/Screenshot3.png)
+![Phoenix Screenshot](images/screenshots/Screenshot4.png)
