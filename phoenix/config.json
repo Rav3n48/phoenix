@@ -1,7 +1,13 @@
 {
     "TABLE_COUNT": 3,
-    "LANGUAGE": "farsi",
-    "THEME": "minecraft",
+    "LANGUAGE": "english",
+    "THEME": "dark",
     "HIDE_BTN": true,
+    "DEFAULT_PRICE_BTN": false,
+    "DEFAULT_PRICES": {
+        "ONE_PLAYER": "0",
+        "TWO_PLAYERS": "0",
+        "FOUR_PLAYERS": "0"
+    },
     "BUFFET_DEFAULT_ITEMS": []
 }
