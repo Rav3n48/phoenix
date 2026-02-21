@@ -12,7 +12,13 @@ class ConfigManager:
             "TABLE_COUNT": 3,
             "LANGUAGE": "english",
             "THEME": "dark",
-            "HIDE_BTN": False,
+            "HIDE_BTN": True,
+            "DEFAULT_PRICE_BTN": False,
+            "DEFAULT_PRICES": {
+                "ONE_PLAYER": "0",
+                "TWO_PLAYERS": "0",
+                "FOUR_PLAYERS": "0"
+            },
             "BUFFET_DEFAULT_ITEMS": []
         }
 

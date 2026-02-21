@@ -2,6 +2,9 @@
     "phoenix": "Phoenix",
     "statistics": "Statistics",
     "ok": "Ok",
+    "done": "Done.",
+    "confirm": "Confirm",
+    "default": "Default",
     "start": "Start",
     "price": "Price",
     "stop": "Stop",
@@ -41,10 +44,16 @@
     "buffet_default": "Add Or Remove Buffet Default Item",
     "add_new_item": "Add New Item",
     "default_item": "Default Item",
+    "price_default": "Default Prices",
     "show_price_error": "Price per hour is not entered or there's no time for calculate.",
     "add_buffet_item_error": "Name or price is not entered.",
+    "default_price_error": "You should enter all price fields.",
     "setting_hide": "Add hide button for price per hour",
+    "default_hide": "Add default price button",
     "tractor": "Tractor",
     "cyberpunk": "Cyberpunk",
-    "minecraft": "Minecraft"
+    "minecraft": "Minecraft",
+    "one_player": "One Player",
+    "two_players": "Two Players",
+    "four_players": "Four Players"
 }
