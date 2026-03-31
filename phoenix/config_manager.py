@@ -17,6 +17,7 @@ class ConfigManager:
             "DEFAULT_PRICES": {
                 "ONE_PLAYER": "0",
                 "TWO_PLAYERS": "0",
+                "THREE_PLAYERS": "0",
                 "FOUR_PLAYERS": "0"
             },
             "BUFFET_DEFAULT_ITEMS": []

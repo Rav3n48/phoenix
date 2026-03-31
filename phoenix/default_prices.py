@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import (
-    QVBoxLayout, QHBoxLayout, QPushButton, 
+    QVBoxLayout, QHBoxLayout, QPushButton,
     QLabel, QSpacerItem, QLineEdit, QDialog
 )
 
@@ -28,6 +28,7 @@ class DefaultPricesDialog(QDialog):
         row2 = QHBoxLayout()
         row3 = QHBoxLayout()
         row4 = QHBoxLayout()
+        row5 = QHBoxLayout()
 
         self.lbl_one = QLabel(f"{get_string('one_player')}:")
 
@@ -45,6 +46,14 @@ class DefaultPricesDialog(QDialog):
         self.input_two.textEdited.connect(lambda: self.input_two.setText(
             format_price_input(self.input_two.text())))
         self.input_two.setText(self.prices.get("TWO_PLAYERS", "0"))
+
+        self.lbl_three = QLabel(f"{get_string('three_players')}:")
+        self.input_three = QLineEdit()
+        self.input_three.setPlaceholderText(get_string('three_players'))
+        self.input_three.setValidator(QIntValidator())
+        self.input_three.textEdited.connect(lambda: self.input_three.setText(
+            format_price_input(self.input_three.text())))
+        self.input_three.setText(self.prices.get("THREE_PLAYERS", "0"))
 
         self.lbl_four = QLabel(f"{get_string('four_players')}:")
         self.input_four = QLineEdit()
@@ -67,8 +76,11 @@ class DefaultPricesDialog(QDialog):
             row2.addWidget(self.input_two, alignment=Qt.AlignLeft)
             row2.addWidget(self.lbl_two, alignment=Qt.AlignRight)
 
-            row3.addWidget(self.input_four, alignment=Qt.AlignLeft)
-            row3.addWidget(self.lbl_four, alignment=Qt.AlignRight)
+            row3.addWidget(self.input_three, alignment=Qt.AlignLeft)
+            row3.addWidget(self.lbl_three, alignment=Qt.AlignRight)
+
+            row4.addWidget(self.input_four, alignment=Qt.AlignLeft)
+            row4.addWidget(self.lbl_four, alignment=Qt.AlignRight)
 
         else:
             row1.addWidget(self.lbl_one, alignment=Qt.AlignLeft)
@@ -77,11 +89,14 @@ class DefaultPricesDialog(QDialog):
             row2.addWidget(self.lbl_two, alignment=Qt.AlignLeft)
             row2.addWidget(self.input_two, alignment=Qt.AlignRight)
 
-            row3.addWidget(self.lbl_four, alignment=Qt.AlignLeft)
-            row3.addWidget(self.input_four, alignment=Qt.AlignRight)
+            row3.addWidget(self.lbl_three, alignment=Qt.AlignLeft)
+            row3.addWidget(self.input_three, alignment=Qt.AlignRight)
 
-        row4.addWidget(self.btn_cancel)
-        row4.addWidget(self.btn_confirm)
+            row4.addWidget(self.lbl_four, alignment=Qt.AlignLeft)
+            row4.addWidget(self.input_four, alignment=Qt.AlignRight)
+
+        row5.addWidget(self.btn_cancel)
+        row5.addWidget(self.btn_confirm)
 
         layout.addLayout(row1)
         layout.addSpacerItem(QSpacerItem(0, 15))
@@ -93,23 +108,29 @@ class DefaultPricesDialog(QDialog):
         layout.addSpacerItem(QSpacerItem(0, 15))
 
         layout.addLayout(row4)
+        layout.addSpacerItem(QSpacerItem(0, 15))
+
+        layout.addLayout(row5)
 
         self.setLayout(layout)
 
     def confirm(self):
         one = self.input_one.text()
         two = self.input_two.text()
+        three = self.input_three.text()
         four = self.input_four.text()
-        if one.strip() == "" or two == "" or four == "":
+        if one.strip() == "" or two.strip() == "" or three.strip() == "" or four.strip() == "":
             show_message(get_string('default_price_error'))
         else:
             prices = config_manager.get("DEFAULT_PRICES", {
                 "ONE_PLAYER": 0,
                 "TWO_PLAYERS": 0,
+                "THREE_PLAYERS": 0,
                 "FOUR_PLAYERS": 0
             })
             prices["ONE_PLAYER"] = one
             prices["TWO_PLAYERS"] = two
+            prices["THREE_PLAYERS"] = three
             prices["FOUR_PLAYERS"] = four
             config_manager.set("DEFAULT_PRICES", prices)
             show_message(get_string('done'))

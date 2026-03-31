@@ -34,9 +34,11 @@ settings_strings = {
 default_price_strings = {
     "One Player": "ONE_PLAYER",
     "Two Players": "TWO_PLAYERS",
+    "Three Players": "THREE_PLAYERS",
     "Four Players": "FOUR_PLAYERS",
     "یک بازیکن": "ONE_PLAYER",
     "دو بازیکن": "TWO_PLAYERS",
+    "سه بازیکن": "THREE_PLAYERS",
     "چهار بازیکن": "FOUR_PLAYERS",
 }
 

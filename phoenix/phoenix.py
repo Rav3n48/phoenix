@@ -203,6 +203,7 @@ class MainWidget(QWidget):
         choices = (
             get_string('one_player'),
             get_string('two_players'),
+            get_string('three_players'),
             get_string('four_players'))
         current_text = self.combo_default_prices.currentText()
         if current_text in choices:
